@@ -20,19 +20,19 @@ if computer == human:
     print("Tie game. Shoot again.")
 
 elif computer == "scissors" and human == "paper":
-    print(f"{computer} cuts {human}. Computer wins.")
+    print(f"{computer} cuts {human}. Computer wins, sucka.")
 
 elif computer == "paper" and human == "rock":
-    print(f"{computer} covers {human}. Computer wins.")
+    print(f"{computer} covers {human}. Computer beats the dumb human.")
 
 elif computer == "rock" and human == "scissors":
     print(f"{computer} smashes {human}. Computer wins.")
 
 elif human == "scissors" and computer == "paper":
-    print(f"{human} cuts {computer}. Human wins.")
+    print(f"{human} cuts {computer}. Human got lucky.")
 
 elif human == "paper" and computer == "rock":
-    print(f"{human} covers {computer}. Human wins.")
+    print(f"{human} covers {computer}. Stupid Human somehow wins.")
 
 elif human == "rock" and computer == "scissors":
     print(f"{human} smashes {computer}. Human wins.")
