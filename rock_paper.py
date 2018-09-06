@@ -1,48 +1,76 @@
 from random import choice
 
-human_won = choice(["Blind squirrel found a nut", "Computer lost to dumb human",
-        "Enjoy it while you can", "Dumb human got lucky"])
-
-comp_won = choice(["Computer beats the dipshit human.", "Computer wins, hahaha.",
-        "Inferior human loses again.", "How are you going to win a simple game if you can't keep ass hats out of the oval office?"])
-
-human = input("Make your selection: [r]ock, [p]aper, or [s]cissors\n> ").lower()
-
-if human == "r" or human == "rock":
-    human = "rock"
-
-elif human == "s" or human == "scissors":
-    human = "scissors"
-
-elif human == "p" or human == "paper":
-    human = "paper"
+match_length = input("How many games wins the match? \n> ")
+if match_length.isdigit():
+    match_length = int(match_length)
 
 else:
-    print("Make a valid selection, dumbass!")
+    match_length = int(input("Yo! Dumbass! \nEnter a digit! How many games wins the match?? "))
+player_wins = 0
+computer_wins = 0
 
-computer = choice(["rock", "paper", "scissors"])
-print(f"Computer's choice is {computer}.\n")
+while player_wins < match_length and computer_wins < match_length:
+    human_won = choice(["Blind squirrel found a nut", "Computer lost to dumb human",
+            "Enjoy it while you can", "Dumb human got lucky"])
 
-if computer == human:
-    print("Tie game. Shoot again.")
+    comp_won = choice(["Computer beats the dipshit human.", "Computer wins, hahaha.",
+            "Inferior human loses again.", "Sausages, Sausages. Barely even human!"])
 
-elif computer == "scissors" and human == "paper":
-    print(f"{computer.capitalize()} cuts {human}. {comp_won}")
+    human = input("Make your selection: [r]ock, [p]aper, or [s]cissors\n> ").lower()
 
-elif computer == "paper" and human == "rock":
-    print(f"{computer.capitalize()} covers {human}. {comp_won}")
+    if human == "r" or human == "rock":
+        human = "rock"
 
-elif computer == "rock" and human == "scissors":
-    print(f"{computer.capitalize()} smashes {human}. {comp_won}")
+    elif human == "s" or human == "scissors":
+        human = "scissors"
 
-elif human == "scissors" and computer == "paper":
-    print(f"{human.capitalize()} cuts {computer}. {human_won}.")
+    elif human == "p" or human == "paper":
+        human = "paper"
 
-elif human == "paper" and computer == "rock":
-    print(f"{human.capitalize()} covers {computer}. {human_won}.")
+    else:
+        print("Make a valid selection, dumbass!")
 
-elif human == "rock" and computer == "scissors":
-    print(f"{human.capitalize()} smashes {computer}. {human_won}.")
+    computer = choice(["rock", "paper", "scissors"])
+    print(f"Computer's choice is {computer}.\n")
+
+    if computer == human:
+        print("Tie game. Shoot again.")
+
+    elif computer == "scissors" and human == "paper":
+        print(f"{computer.capitalize()} cuts {human}. {comp_won}")
+        computer_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    elif computer == "paper" and human == "rock":
+        print(f"{computer.capitalize()} covers {human}. {comp_won}")
+        computer_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    elif computer == "rock" and human == "scissors":
+        print(f"{computer.capitalize()} smashes {human}. {comp_won}")
+        computer_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    elif human == "scissors" and computer == "paper":
+        print(f"{human.capitalize()} cuts {computer}. {human_won}.")
+        player_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    elif human == "paper" and computer == "rock":
+        print(f"{human.capitalize()} covers {computer}. {human_won}.")
+        player_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    elif human == "rock" and computer == "scissors":
+        print(f"{human.capitalize()} smashes {computer}. {human_won}.")
+        player_wins += 1
+        print(f"Human: {player_wins}, Computer: {computer_wins}")
+
+    else:
+        print("You suck at this game!")
+
+if player_wins > computer_wins:
+    print("Human wins the match.\n\n" * 100000)
 
 else:
-    print("You suck at this game!")
+    print("Computer wins the match.")
