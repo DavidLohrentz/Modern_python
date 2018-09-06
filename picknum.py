@@ -1,6 +1,13 @@
 from random import randint
 keep_going = "y"
-upper_limit = int(input("Enter a number for the upper limit of the guessing game:\n> "))
+upper_limit = input("Enter a number for the upper limit of the guessing game:\n> ")
+
+if upper_limit.isdigit():
+    upper_limit = int(upper_limit)
+
+else:
+    upper_limit = int(input("Yo! Enter digits!\n What is the upper limit?  "))
+
 counter = 0
 randy = randint(1, upper_limit)
 
@@ -34,6 +41,6 @@ while True:
             counter = 0
         else:
             print("Thank you for playing, sucka.")
-            ave_score = float(cumulative_guesses) / game_count
-            print(f"Your number of games played was {game_count}, and your average number of guesses was {ave_score}.")
+            ave_score = round((cumulative_guesses / game_count), 2)
+            print(f"\n\nYour number of games played was {game_count}, \nand your average number of guesses per game was {ave_score}.")
             break
