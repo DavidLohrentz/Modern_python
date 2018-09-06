@@ -3,7 +3,7 @@ keep_going = "y"
 upper_limit = int(input("Enter a number for the upper limit of the guessing game:\n> "))
 counter = 0
 randy = randint(1, upper_limit)
-user = None
+
 cumulative_guesses = 0
 game_count = 0
 
@@ -24,13 +24,13 @@ while True:
         if counter == 1:
             print("It took you one guess to get it right.")
         else:
-            print(f"It took you {counter} guesses to get the right answer.")
+            print(f"It took you {counter} guesses to get it right.")
 
         play_again = input("Do you want to play again (y/n) ")
         if play_again == "y":
 
             randy = randint(1, upper_limit)
-            guess = None
+
             counter = 0
         else:
             print("Thank you for playing, sucka.")
