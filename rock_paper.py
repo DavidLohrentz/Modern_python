@@ -5,16 +5,16 @@ if match_length.isdigit():
     match_length = int(match_length)
 
 else:
-    match_length = int(input("Yo! Dumbass! \nEnter a digit! How many games wins the match?? "))
+    match_length = int(input("Yo! Dumbass! \nEnter nothing but digits! How many games wins the match?? "))
 player_wins = 0
 computer_wins = 0
 
 while player_wins < match_length and computer_wins < match_length:
     human_won = choice(["Blind squirrel found a nut", "Computer lost to dumb human",
-            "Enjoy it while you can", "Dumb human got lucky"])
+            "Enjoy it while you can", "Dumb human got lucky", ":)"])
 
-    comp_won = choice(["Computer beats the dipshit human.", "Computer wins, hahaha.",
-            "Inferior human loses again.", "Sausages, Sausages. Barely even human!"])
+    comp_won = choice(["Wah, wah, wah", "Computer beats the dipshit human.", "Computer wins, hahaha.",
+            "Inferior human loses again.", "Sausages, Sausages. Barely even human!", ":("])
 
     human = input("Make your selection: [r]ock, [p]aper, or [s]cissors\n> ").lower()
 
