@@ -40,7 +40,7 @@ while True:
 
             counter = 0
         else:
-            print("Thank you for playing, sucka.")
+            print("Thank you for playing. Better luck next time, asshole.")
             ave_score = round((cumulative_guesses / game_count), 2)
             print(f"\n\nYour number of games played was {game_count}, \nand your average number of guesses per game was {ave_score}.")
             break
