@@ -1,5 +1,9 @@
 from random import choice
 
+
+CR_count = 0
+CP_count = 0
+CS_count = 0
 match_length = input("How many games wins the match? \n> ")
 if match_length.isdigit():
     match_length = int(match_length)
@@ -14,9 +18,9 @@ while player_wins < match_length and computer_wins < match_length:
             "Enjoy it while you can", "Dumb human got lucky", ":)"])
 
     comp_won = choice(["Wah, wah, wah", "Computer beats the dipshit human.", "Computer wins, hahaha.",
-            "Inferior human loses again.", "Sausages, Sausages. Barely even human!", ":("])
+            "Inferior human lost that one.", "Sausages, Sausages. Barely even human!", ":("])
 
-    human = input("Make your selection: [r]ock, [p]aper, or [s]cissors\n> ").lower()
+    human = input("Make your selection: r/p/s or q (quit)\n> ").lower()
 
     if human == "r" or human == "rock":
         human = "rock"
@@ -27,11 +31,20 @@ while player_wins < match_length and computer_wins < match_length:
     elif human == "p" or human == "paper":
         human = "paper"
 
+    elif human == "q" or human == "Q" or human == "Q":
+        break
+
     else:
         print("Make a valid selection, dumbass!")
 
     computer = choice(["rock", "paper", "scissors"])
     print(f"Computer's choice is {computer}.\n")
+    if computer == "rock":
+        CR_count += 1
+    elif computer == "paper":
+        CP_count += 1
+    else:
+        CS_count += 1
 
     if computer == human:
         print("Tie game. Shoot again.")
@@ -69,8 +82,14 @@ while player_wins < match_length and computer_wins < match_length:
     else:
         print("You suck at this game!")
 
-if player_wins > computer_wins:
+if human == "q" or human == "Q" or human == "Q":
+    print("Human forfeits")
+
+elif player_wins > computer_wins:
     print("Human wins the match.\n\n" * 100000)
 
 else:
     print("Computer wins the match.")
+
+print(f"Computer's choices\nRock: {CR_count}")
+print(f"Paper: {CP_count}\nScissors: {CS_count}")
