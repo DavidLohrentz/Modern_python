@@ -15,7 +15,7 @@ computer_wins = 0
 
 while player_wins < match_length and computer_wins < match_length:
     human_won = choice(["Blind squirrel found a nut", "Computer lost to dumb human",
-            "Enjoy it while you can", "Dumb human got lucky", ":)"])
+            "Enjoy it while you can", "Dumb human got lucky", ":)", "Fuck me . . . lost to humanoid?"])
 
     comp_won = choice(["Wah, wah, wah", "Computer beats the dipshit human.", "Computer wins, hahaha.",
             "Inferior human lost that one.", "Sausages, Sausages. Barely even human!", ":("])
@@ -91,5 +91,5 @@ elif player_wins > computer_wins:
 else:
     print("Computer wins the match.")
 
-print(f"Computer's choices\nRock: {CR_count}")
+print(f"Computer's choices:\nRock: {CR_count}")
 print(f"Paper: {CP_count}\nScissors: {CS_count}")
