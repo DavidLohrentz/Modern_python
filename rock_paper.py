@@ -4,21 +4,34 @@ from random import choice
 CR_count = 0
 CP_count = 0
 CS_count = 0
+
+human_win_comments = ["Blind squirrel found a nut",
+                    "Computer lost to dumb human",
+                    "Enjoy it while you can",
+                    "Dumb human got lucky",
+                    ":)",
+                    "Fuck me . . . lost to humanoid?"]
+
+comp_win_comments = ["Wah, wah, wah",
+                    "Computer beats the dipshit human.",
+                    "Computer wins, hahaha.",
+                    "Inferior human lost that one.",
+                    "Sausages, Sausages. Barely even human!",
+                    ":("]
 match_length = input("How many games wins the match? \n> ")
 if match_length.isdigit():
     match_length = int(match_length)
 
 else:
-    match_length = int(input("Yo! Dumbass! \nEnter nothing but digits! How many games wins the match?? "))
+    match_length = int(
+        input("Enter nothing but digits! How many games wins the match?? "))
 player_wins = 0
 computer_wins = 0
 
 while player_wins < match_length and computer_wins < match_length:
-    human_won = choice(["Blind squirrel found a nut", "Computer lost to dumb human",
-            "Enjoy it while you can", "Dumb human got lucky", ":)", "Fuck me . . . lost to humanoid?"])
+    human_won = choice(human_win_comments)
 
-    comp_won = choice(["Wah, wah, wah", "Computer beats the dipshit human.", "Computer wins, hahaha.",
-            "Inferior human lost that one.", "Sausages, Sausages. Barely even human!", ":("])
+    comp_won = choice(comp_win_comments)
 
     human = input("Make your selection: r/p/s or q (quit)\n> ").lower()
 
