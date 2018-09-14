@@ -18,6 +18,7 @@ comp_win_comments = ["Wah, wah, wah",
                     "Inferior human lost that one.",
                     "Sausages, Sausages. Barely even human!",
                     ":("]
+
 match_length = input("How many games wins the match? \n> ")
 if match_length.isdigit():
     match_length = int(match_length)
@@ -25,6 +26,7 @@ if match_length.isdigit():
 else:
     match_length = int(
         input("Enter nothing but digits! How many games wins the match?? "))
+
 player_wins = 0
 computer_wins = 0
 
