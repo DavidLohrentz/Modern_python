@@ -5,12 +5,16 @@ CR_count = 0
 CP_count = 0
 CS_count = 0
 
+HR_count = 0
+HP_count = 0
+HS_count = 0
+
 human_win_comments = ["Blind squirrel found a nut",
                     "Computer lost to dumb human",
                     "Enjoy it while you can",
                     "Dumb human got lucky",
                     ":)",
-                    "Fuck me . . . lost to humanoid?"]
+                    "Fuck me . . . lost to humanoid"]
 
 comp_win_comments = ["Wah, wah, wah",
                     "Computer beats the dipshit human.",
@@ -37,6 +41,18 @@ while player_wins < match_length and computer_wins < match_length:
 
     human = input("Make your selection: r/p/s or q (quit)\n> ").lower()
 
+    if human == "r":
+        HR_count += 1
+
+    elif human == "p":
+        HP_count += 1
+
+    elif human == "s":
+        HS_count += 1
+
+    else:
+        print("Tsk, Tsk, Tsk")
+
     if human == "r" or human == "rock":
         human = "rock"
 
@@ -46,7 +62,7 @@ while player_wins < match_length and computer_wins < match_length:
     elif human == "p" or human == "paper":
         human = "paper"
 
-    elif human == "q" or human == "Q" or human == "Q":
+    elif human == "q" or human == "Q" or human == "quit":
         break
 
     else:
@@ -101,10 +117,53 @@ if human == "q" or human == "Q" or human == "Q":
     print("Human forfeits")
 
 elif player_wins > computer_wins:
-    print("Human wins the match.\n\n" * 100000)
+    print("Human wins the match.\n" * 10)
 
 else:
-    print("Computer wins the match.")
+    print("Computer wins the match.\n" *10)
+CRper = round(100 * CR_count / (CR_count + CP_count + CS_count), 1)
+CSper = round(100 * CS_count / (CR_count + CP_count + CS_count), 1)
+CPper = round(100 * CP_count / (CR_count + CP_count + CS_count), 1)
 
-print(f"Computer's choices:\nRock: {CR_count}")
-print(f"Paper: {CP_count}\nScissors: {CS_count}")
+HRper = round(100 * HR_count / (HR_count + HP_count + HS_count), 1)
+HSper = round(100 * HS_count / (HR_count + HP_count + HS_count), 1)
+HPper = round(100 * HP_count / (HR_count + HP_count + HS_count), 1)
+
+#print(f"\nComputer:\nRock: {CRper}%")
+#print(f"Paper: {CPper}%\nScissors: {CSper}%\n-----------------\n")
+
+#print(f"Human:\nRock: {HRper}%")
+#print(f"Paper: {HPper}%\nScissors: {HSper}%")
+print("\n            CHOICE FREQUENCIES")
+print(f"\n            Computer:    Human:")
+print(f"Rock:       {CRper}%        {HRper}%")
+print(f"Paper:      {CPper}%        {HPper}%")
+print(f"Scissors:   {CSper}%        {HSper}%\n")
+
+comprock = "R" * int(CRper)
+comppaper = "P" * int(CPper)
+compsci = "S" * int(CSper)
+print("Computer:")
+print(f"    Rock: {comprock}")
+print(f"   Paper: {comppaper}")
+print(f"Scissors: {compsci}\n")
+
+hrock = "R" * int(HRper)
+hpaper = "P" * int(HPper)
+hsci = "S" * int(HSper)
+print("Human:")
+print(f"    Rock: {hrock}")
+print(f"   Paper: {hpaper}")
+print(f"Scissors: {hsci}\n")
+
+if HSper > 50 and HPper < 50 and HRper < 50:
+    print("You like scissors!")
+
+elif HPper > 50 and HSper < 50 and HRper < 50:
+    print("You love paper!")
+
+elif HRper > 50 and HSper < 50 and HPper < 50:
+    print("You have a rock fetish!")
+
+else:
+    print("Nice job with your selections.")
